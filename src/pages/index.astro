@@ -3,16 +3,50 @@ import Main from '../components/sections/Main.astro';
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import Lessons from '../components/Lessons.astro';
-import Container from '../components/sections/Container.astro';
 ---
 
 <Layout title="Ana Sayfa">
 	<Main> 
     <Title />
-    <Container>
-      
-      <Lessons />
-      <Lessons />
-    </Container>
+
+      <div class="row g-0">
+
+        <!-- Column-1 -->
+        <div class="col">
+          <Lessons 
+            title="Nesne Tabanlı Programlama - II"
+            desc="lorem ipsum dolor sit amet."
+            bgColor = "text-bg-dark"
+            innerBgColor = "bg-body-tertiary"
+            imgSrc = "/illustrations/hackermind.svg"
+          />
+          <Lessons 
+            title="İnternet Programcılığı - II"
+            desc="lorem ipsum dolor sit amet."
+            bgColor = "text-bg-"
+            innerBgColor ="bg-body-white"
+            imgSrc = "/illustrations/programming.svg"
+          />
+        </div>
+
+        <!-- Column-2 -->
+        <div class="col">
+          <Lessons 
+            title="Görsel Programlama - III"
+            desc="lorem ipsum dolor sit amet."
+            bgColor = "text-bg-white"
+            imgSrc = "/illustrations/website.svg"
+            
+          />
+          <Lessons 
+            title="Yapay Zeka - II"
+            desc="lorem ipsum dolor sit amet."
+            bgColor = "text-bg-dark"
+            innerBgColor ="bg-body-tertiary"
+            imgSrc = "/illustrations/github_activity.svg"
+          />
+        </div>
+      </div>
+
 	</Main>
 </Layout>
