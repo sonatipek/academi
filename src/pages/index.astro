@@ -1,11 +1,18 @@
 ---
 import Main from '../components/sections/Main.astro';
 import Layout from '../layouts/Layout.astro';
-
+import Title from '../components/Title.astro';
+import Lessons from '../components/Lessons.astro';
+import Container from '../components/sections/Container.astro';
 ---
 
 <Layout title="Ana Sayfa">
 	<Main> 
-		<h1>Hello World!</h1>
+    <Title />
+    <Container>
+      
+      <Lessons />
+      <Lessons />
+    </Container>
 	</Main>
 </Layout>
