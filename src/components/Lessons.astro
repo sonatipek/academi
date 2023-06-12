@@ -3,12 +3,12 @@ const { title, desc, bgColor, imgSrc} = Astro.props;
 ---
 
 
-<div class:list={[bgColor, "pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden h-50"]}>
+<div class:list={[bgColor, "pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden h-50 w-100"]}>
     <div class="my-3 py-3">
     <h2 class="display-5">{title}</h2>
     <p class="lead">{desc}</p>
     </div>
     <div class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-    <img src={imgSrc} alt="illustartions" height="300">
+    <img src={imgSrc} alt="illustartions" height="300" width="350">
     </div>
 </div>
