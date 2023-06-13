@@ -1,7 +1,7 @@
 ---
-
+const { className } = Astro.props;
 ---
-<main class="container mt-3">
+<main class:list={["container mt-3", className]}>
     <slot />
 
 </main>
