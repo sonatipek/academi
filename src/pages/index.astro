@@ -1,46 +1,46 @@
 ---
 import Main from '../components/sections/Main.astro';
 import Layout from '../layouts/Layout.astro';
-import Title from '../components/Cover.astro';
+import Cover from '../components/Cover.astro';
 import Lessons from '../components/Lessons.astro';
 ---
 
 <Layout title="Ana Sayfa">
 	<Main> 
-    <Title />
+    <Cover />
 
       <div class="row g-0">
-
+        <h1 class="text-center display-3 mb-5">Eğitimlerimiz</h1>
         <!-- Column-1 -->
         <div class="col">
           <Lessons 
-            title="Nesne Tabanlı Programlama - II"
-            desc="lorem ipsum dolor sit amet."
+            title="Nesne Tabanlı Programlama - OOP"
+            desc="Bu eğitimimizde terminolojide 'Object Orianted Programming' olarak kullanılan Nesne Tabanlı Programlamayı 3 dilde öğreneceksiniz; PHP, Python, Javascript "
             bgColor = "text-bg-dark"
             innerBgColor = "bg-body-tertiary"
             imgSrc = "/illustrations/hackermind.svg"
           />
           <Lessons 
-            title="İnternet Programcılığı - II"
-            desc="lorem ipsum dolor sit amet."
-            bgColor = "text-bg-"
+            title="T-SQL ve Veritabanı Yönetim Sistemleri"
+            desc="Bu T-SQL sorgu dilini öğrenecek ve veritabanı yönetim sistemleri konusunda uzmanlaşacaksınız."
+            bgColor = "text-bg-white"
             innerBgColor ="bg-body-white"
-            imgSrc = "/illustrations/programming.svg"
+            imgSrc = "/illustrations/database.svg"
           />
         </div>
 
         <!-- Column-2 -->
         <div class="col">
           <Lessons 
-            title="Görsel Programlama - III"
-            desc="lorem ipsum dolor sit amet."
+            title="Modern Web Tasarım Temelleri"
+            desc="Bu eğitimizde JS ile modern web tasarımın temellerini öğreneceksiniz. Tamamen güncel ve yenilikçi anlayışla; Vue.js, React.js, PostgreSQL, MongoDB ve Node.js öğreneceksiniz."
             bgColor = "text-bg-white"
             imgSrc = "/illustrations/website.svg"
             
           />
           <Lessons 
-            title="Yapay Zeka - II"
-            desc="lorem ipsum dolor sit amet."
+            title="Yapay Zeka Temelleri ve Python"
+            desc="Bu eğitimimizde Python programlama dilini öğrenmek ve yapay zeka konusunda temel bilgileri öğreneceksiniz."
             bgColor = "text-bg-dark"
             innerBgColor ="bg-body-tertiary"
             imgSrc = "/illustrations/ai.svg"
