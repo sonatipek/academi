@@ -1,7 +1,7 @@
 <template>
     <div class="border border-primary-subtle rounded-4 w-50 d-flex flex-column justify-content-between">
         <div class="bg-primary-subtle rounded-top-4 px-3 pb-2">
-            <img :src="imgSrc" alt="card image" height="150">
+            <img :src="imgSrc" alt="card image" height="150" width="300">
             <h1 class="display-6">{{  title }}</h1>
         </div>
 

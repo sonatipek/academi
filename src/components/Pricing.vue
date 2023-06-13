@@ -1,9 +1,10 @@
 <template>
+    <h1 class="text-center display-5 mb-5">Ödeme Planları</h1>
     
     <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Aylık Ödeme Planı</button>
-            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Yıllık Ödeme Planı</button>
+            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Aylık</button>
+            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Yıllık</button>
         </div>
 
         <div class="tab-content" id="v-pills-tabContent">
@@ -11,24 +12,24 @@
                 <div class="ms-5 d-flex gap-5 align-items-start justify-content-center w-100">
                     <Pricingoptions
                         :items="featuresMounth1"
-                        :title="titleMounth1"
-                        :imgSrc="imgSrcMount1"
+                        :title="title1"
+                        :imgSrc="imgSrc1"
                         :ucret="ucretMounth1"
                         :loop="loopMounth"
                     ></Pricingoptions>
 
                     <Pricingoptions
                         :items="featuresMounth2"
-                        :title="titleMounth2"
-                        :imgSrc="imgSrcMount2"
+                        :title="title2"
+                        :imgSrc="imgSrc2"
                         :ucret="ucretMounth2"
                         :loop="loopMounth"
                     ></Pricingoptions>
 
                     <Pricingoptions
                         :items="featuresMounth3"
-                        :title="titleMounth3"
-                        :imgSrc="imgSrcMount3"
+                        :title="title3"
+                        :imgSrc="imgSrc3"
                         :ucret="ucretMounth3"
                         :loop="loopMounth"
                     ></Pricingoptions>  
@@ -40,24 +41,24 @@
                 <div class="ms-5 d-flex gap-5 align-items-start justify-content-center w-100">
                     <Pricingoptions
                         :items="featuresYear1"
-                        :title="titleYear1"
-                        :imgSrc="imgSrcYear1"
+                        :title="title1"
+                        :imgSrc="imgSrc1"
                         :ucret="ucretYear1"
                         :loop="loopYear"
                     ></Pricingoptions>
 
                     <Pricingoptions
                         :items="featuresYear2"
-                        :title="titleYear2"
-                        :imgSrc="imgSrcYear2"
+                        :title="title2"
+                        :imgSrc="imgSrc2"
                         :ucret="ucretYear2"
                         :loop="loopYear"
                     ></Pricingoptions>
 
                     <Pricingoptions
                         :items="featuresYear3"
-                        :title="titleYear3"
-                        :imgSrc="imgSrcYear3"
+                        :title="title3"
+                        :imgSrc="imgSrc3"
                         :ucret="ucretYear3"
                         :loop="loopYear"
                     ></Pricingoptions>
@@ -72,6 +73,7 @@
     <div>
         
     </div>
+    <p class="text-secodnary mt-3"> <b>Not: </b>Ödeme planları eğitmenler içindir. Eğitimden yararlanan öğrencilerimizden eğitim ücretinden başka bir ücret talep edilmemektedir.</p>
 </template>
   
 <script>
@@ -85,13 +87,18 @@ import Pricingoptions from './Pricingoptions.vue';
         return {
             loopYear: "yıl",
             loopMounth: "ay",
-            
+            title1: "Başlangıç",
+            title2: "Standart",
+            title3: "Premium",
+            imgSrc1: "/illustrations/discount.svg",
+            imgSrc2: "/illustrations/add_to_card.svg",
+            imgSrc3: "/illustrations/shopping.svg",
+
             // Plan -1
             featuresMounth1: [
                 {id: 1, feature: "Özellik -1"},
                 {id: 2, feature: "Özellik -2"}
             ],
-            titleMounth1: "Başlık 1",
             imgSrcMount1: "/illustrations/programmer.svg",
             ucretMounth1: "19",
             
@@ -102,7 +109,6 @@ import Pricingoptions from './Pricingoptions.vue';
                 {id: 3, feature: "Özellik -3"},
                 {id: 4, feature: "Özellik -4"}
             ],
-            titleMounth2: "Başlık 2",
             imgSrcMount2: "/illustrations/programmer.svg",
             ucretMounth2: "49",
             
@@ -115,7 +121,6 @@ import Pricingoptions from './Pricingoptions.vue';
                 {id: 5, feature: "Özellik -5"},
                 {id: 6, feature: "Özellik -6"}
             ],
-            titleMounth3: "Başlık 3",
             imgSrcMount3: "/illustrations/programmer.svg",
             ucretMounth3: "89",
             
@@ -124,7 +129,6 @@ import Pricingoptions from './Pricingoptions.vue';
                 {id: 1, feature: "Özellik -1"},
                 {id: 2, feature: "Özellik -2"},
             ],
-            titleYear1: "Başlık 1",
             imgSrcYear1: "/illustrations/programmer.svg",
             ucretYear1: "199",
             
@@ -135,7 +139,6 @@ import Pricingoptions from './Pricingoptions.vue';
                 {id: 3, feature: "Özellik -3"},
                 {id: 4, feature: "Özellik -4"},
             ],
-            titleYear2: "Başlık 2",
             imgSrcYear2: "/illustrations/programmer.svg",
             ucretYear2: "549",
             
@@ -148,7 +151,6 @@ import Pricingoptions from './Pricingoptions.vue';
                 {id: 5, feature: "Özellik -5"},
                 {id: 6, feature: "Özellik -6"},
             ],
-            titleYear3: "Başlık 3",
             imgSrcYear3: "/illustrations/shopping.svg",
             ucretYear3: "799",
         }
