@@ -1,7 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/sections/Main.astro';
+
+import LessonDetail from '../../components/LessonDeatil.astro'
+import Accordion from '../../components/Accordion.astro';
 ---
 
 <Layout title="Yapay Zeka">
+    <Main>
+        <LessonDetail 
+            titleOfLesson="Nesne Tabanlı Programlama - OOP"
+            descOfLesson="Bu eğitimimizde terminolojide 'Object Orianted Programming' olarak kullanılan Nesne Tabanlı Programlamayı 3 dilde öğreneceksiniz; PHP, Python, Javascript gibi popüler diller ile beraber sektörün aranan yazılımcısı olacaksınız!"
+            imgSrc="/illustrations/hackermind.svg"
+            breadcrumb="Nesne Tabanlı Programlama Eğitimi"
+            price="29.90"
+        />
+        <Accordion />
 
+    </Main>
 </Layout>
