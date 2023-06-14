@@ -1,7 +1,67 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/sections/Main.astro';
+
+import LessonDetail from '../../components/LessonDeatil.astro'
+import Accordion from '../../components/Accordion.astro';
+import AccordionItem from '../../components/AccordionItem.astro';
 ---
 
-<Layout title="Yapay Zeka">
+<Layout title="Veri Tabanı Yönetim Sistemleri">
+    <Main>
+        <LessonDetail 
+            titleOfLesson="T-SQL ve Veri Tabanı Yönetim Sistemleri"
+            descOfLesson="Bu eğitimimizde T-SQL sorgu dilini öğrenecek ve veritabanı yönetim sistemleri konusunda uzmanlaşacaksınız."
+            imgSrc="/illustrations/database.svg"
+            breadcrumb="T-SQL ve Veri Tabanı Yönetim Sistemleri Eğitimi"
+            price="89.90"
+            itemList="{ itemList: ['Eğitim dili Türkçedir', 'Temel yazılım bilgisi gereklidir', 'Veritabanı veya SQL bilgisine ihtiyaç yoktur.']}"
+        />
+        <Accordion>
+            <AccordionItem
+                itemTitle="Giriş"
+                itemList="{itemList : ['İlişkisel Veri Tabanı Kavramı RDBMS', 'SQL Server Kurulumu']}"
+                itemID="1"
+                itemIDWithHashtag="#1"
+            />
 
+            <AccordionItem
+                itemTitle="Veri Tabanı İşlemleri Giriş"
+                itemList="{itemList : ['Tablo Oluşturma', 'SELECT Komutu', 'INSERT Komutu', 'UPDATE Komutu', 'Delete Komutu', 'WHERE Şartı']}"
+                itemID="2"
+                itemIDWithHashtag="#2"
+            />
+            <AccordionItem
+                itemTitle="JS OOP"
+                itemList="{itemList : ['JS ile OOP Giriş', 'JS ile OOP İleri Seviye']}"
+                itemID="3"
+                itemIDWithHashtag="#3"
+            />
+            <AccordionItem
+                itemTitle="1. Proje"
+                itemList="{itemList : ['Örnek Satış Veri Tabanı Tasarımı']}"
+                itemID="4"
+                itemIDWithHashtag="#4"
+            />
+            <AccordionItem
+                itemTitle="T-SQL'de Veri Tipleri"
+                itemList="{itemList : ['Sayısal Veri Tipleri', 'Metin Veri Tipleri', 'Ondalıklı Veri Tipleri', 'Tarih-Saat Veri Tipleri']}"
+                itemID="5"
+                itemIDWithHashtag="#5"
+            />
+            <AccordionItem
+                itemTitle="JOIN İşlemleri"
+                itemList="{itemList : ['JOIN Giriş', 'Inner Join', 'Left, Right, Full Join', 'Join Uygulaması']}"
+                itemID="6"
+                itemIDWithHashtag="#6"
+            />
+            <AccordionItem
+                itemTitle="T-SQL'de Veri Tipleri"
+                itemList="{itemList : ['Sayısal Veri Tipleri', 'Metin Veri Tipleri', 'Ondalıklı Veri Tipleri', 'Tarih-Saat Veri Tipleri']}"
+                itemID="5"
+                itemIDWithHashtag="#5"
+            />
+        </Accordion>
+
+    </Main>
 </Layout>

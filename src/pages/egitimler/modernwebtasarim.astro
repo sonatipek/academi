@@ -1,7 +1,50 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/sections/Main.astro';
+
+import LessonDetail from '../../components/LessonDeatil.astro'
+import Accordion from '../../components/Accordion.astro';
+import AccordionItem from '../../components/AccordionItem.astro';
 ---
 
-<Layout title="Yapay Zeka">
+<Layout title="Modern Web Tasarım Temelleri">
+    <Main>
+        <LessonDetail 
+            titleOfLesson="Modern Web Tasarım Temelleri"
+            descOfLesson="Bu eğitimizde JS ile modern web tasarımın temellerini öğreneceksiniz. Tamamen güncel ve yenilikçi anlayışla; Vue.js, React.js, PostgreSQL, MongoDB ve Node.js öğreneceksiniz."
+            imgSrc="/illustrations/website.svg"
+            breadcrumb="Modern Web Tasarım Temelleri Eğitimi"
+            price="47.99"
+            itemList="{itemList: ['Eğitim dili Türkçedir', 'Herhangi bir önbilgi gerekmez', 'Temel bilgisayar bilgisi yeterlidir']}"
+        />
+        <Accordion>
+            <AccordionItem
+                itemTitle="Başlangıç"
+                itemList="{itemList : ['İnternet Nasıl Çalışır', 'Browserlar Nasıl Çalışır']}"
+                itemID="1"
+                itemIDWithHashtag="#1"
+            />
 
+            <AccordionItem
+                itemTitle="HTML - CSS"
+                itemList="{itemList : ['HTML Yapıları', 'CSS Yapıları'}"
+                itemID="2"
+                itemIDWithHashtag="#2"
+            />
+            <AccordionItem
+                itemTitle="Javascript"
+                itemList="{itemList : ['Javascript Nedir', 'Javascript ile DOM Manilpülasyonu']}"
+                itemID="3"
+                itemIDWithHashtag="#3"
+            />
+            <AccordionItem
+                itemTitle="Javascript Frameworkleri"
+                itemList="{itemList : ['Vue.js', 'React.js', 'Astro.js']}"
+                itemID="4"
+                itemIDWithHashtag="#4"
+            />
+            
+        </Accordion>
+
+    </Main>
 </Layout>

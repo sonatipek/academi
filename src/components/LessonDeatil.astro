@@ -1,5 +1,5 @@
 ---
-const { titleOfLesson, descOfLesson, imgSrc, breadcrumb, price } = Astro.props;
+const { titleOfLesson, descOfLesson, imgSrc, breadcrumb, price, itemList } = Astro.props;
 ---
 
 <div class="card border-success-subtle mb-3" style="min-width:70vw; min-height: 50vh;">
@@ -32,10 +32,11 @@ const { titleOfLesson, descOfLesson, imgSrc, breadcrumb, price } = Astro.props;
                     <small class=" fw-light fs-1">₺</small>
                     { price }
                 </p>
-                <ul class="">
-                    <li>Eğitim dili <b>Türkçedir</b></li>
-                    <li>Temel yazılım bilgisi gereklidir</li>
-                    <li>ES6 bilgisi bir avantaj sağlar fakat gerekli değildir</li>
+                <ul x-data={itemList}>
+                    <template x-for="item in itemList">
+                        <li x-text="item"></li>
+                    </template>
+        
                 </ul>
 
                 <button class="btn btn-lg btn-success w-100">

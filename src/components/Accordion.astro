@@ -1,41 +1,8 @@
 ---
-import AccordionItem from '../components/AccordionItem.astro';
-
-
 ---
 
 <h2>Eğitim İçeriği</h2>
 <div class="accordion accordion-flush" id="accordionFlushExample">
-    <AccordionItem
-        itemTitle="Başlangıç"
-        itemList="{itemList : ['OOP Nedir', 'OOP Nereden Çıkmıştır']}"
-        itemID="1"
-        itemIDWithHashtag="#1"
-    />
-
-    <AccordionItem
-        itemTitle="OOP Temelleri"
-        itemList="{itemList : ['Class', 'Miras Alma', 'Örnek -1', 'OOP ile SOLID Prensibi']}"
-        itemID="2"
-        itemIDWithHashtag="#2"
-    />
-    <AccordionItem
-        itemTitle="JS OOP"
-        itemList="{itemList : ['JS ile OOP Giriş', 'JS ile OOP İleri Seviye']}"
-        itemID="3"
-        itemIDWithHashtag="#3"
-    />
-    <AccordionItem
-        itemTitle="PHP OOP"
-        itemList="{itemList : ['PHP ile OOP Giriş', 'PHP ile OOP İleri Seviye']}"
-        itemID="4"
-        itemIDWithHashtag="#4"
-    />
-    <AccordionItem
-        itemTitle="Python OOP"
-        itemList="{itemList : ['Python ile OOP Giriş', 'Python ile OOP İleri Seviye']}"
-        itemID="5"
-        itemIDWithHashtag="#5"
-    />
+    <slot />
     
 </div>
