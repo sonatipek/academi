@@ -1,0 +1,48 @@
+---
+const { titleOfLesson, descOfLesson, imgSrc, breadcrumb, price } = Astro.props;
+---
+
+<div class="card border-success-subtle mb-3" style="min-width:70vw; min-height: 50vh;">
+    <div class="row g-0">
+        <div class="card-header bg-success-subtle">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/egitimler" class="link-success"><i class="fa-solid fa-graduation-cap me-2"></i>Eğitimler</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{ breadcrumb }</li>
+                </ol>
+            </nav>    
+        </div>
+        <div class="col-md-2 p-3 mt-3">
+            <img src={imgSrc} class="img-fluid rounded-start" alt="lesson picture">
+        </div>
+
+        <div class="col-md-6">
+            
+            <div class="card-body d-flex flex-column align-items-start justify-content-between h-100">
+                <h5 class="card-title display-5">{ titleOfLesson }</h5>
+                <p class="card-text lead text-secondary">{ descOfLesson }</p>
+                <p class="card-text "><small class="text-body-secondary"><i class="fa-solid fa-laptop-code"></i> Sonat Saygın İpek</small></p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            
+            <div class="card-body d-flex flex-column align-items-start justify-content-between h-100">
+                <p class="fs-1 fw-medium">
+                    <small class=" fw-light fs-1">₺</small>
+                    { price }
+                </p>
+                <ul class="">
+                    <li>Eğitim dili <b>Türkçedir</b></li>
+                    <li>Temel yazılım bilgisi gereklidir</li>
+                    <li>ES6 bilgisi bir avantaj sağlar fakat gerekli değildir</li>
+                </ul>
+
+                <button class="btn btn-lg btn-success w-100">
+                    <i class="fa-solid fa-cart-plus me-2"></i>
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

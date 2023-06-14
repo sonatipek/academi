@@ -1,0 +1,22 @@
+---
+const { itemTitle, itemList, itemID, itemIDWithHashtag } = Astro.props;
+---
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={itemIDWithHashtag} aria-expanded="false" aria-controls={itemID}>
+        {itemTitle}
+      </button>
+    </h2>
+
+    <div id={itemID} class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          <ul x-data={itemList}>
+            <template x-for="item in itemList">
+                <li x-text="item"></li>
+            </template>
+
+          </ul>
+      </div>
+    </div>
+</div>
