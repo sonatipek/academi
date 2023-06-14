@@ -6,43 +6,48 @@ import Main from "../components/sections/Main.astro";
 
 <Layout title="Eğitimler">
     <Main>
+        <h1 class="display-3 text-center">Eğitimler</h1>
         <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
             <!-- Card -1 -->
             <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/illustrations/ai.svg'); background-size: cover;">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border border-primary-subtle border-3">
                     <LessonCard 
                         title="Nesne Tabanlı Programlama - OOP"
                         href="/egitimler/nesnetabanliprogramlama"
+                        price="29.90"
                     />
                 </div>
             </div>
 
             <!-- Card -2 -->
             <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/illustrations/shopping.svg);background-size: cover;">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border border-primary-subtle border-3" >
                     <LessonCard 
                         title="Yapay Zeka ve Python"
                         href="/egitimler/yapayzeka"
+                        price="450.90"
                     />
                 </div>
             </div>
 
             <!-- Card -3 -->
             <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/illustrations/hackermind.svg');background-size: cover;">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border border-primary-subtle border-3">
                     <LessonCard 
                         title="Modern Web Tasarım Temelleri"
                         href="/egitimler/modernwebtasarim"
+                        price="47.99"
                     />
                 </div>
             </div>
 
             <!-- Card -4 -->
             <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/illustrations/website.svg');background-size: cover;">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border border-primary-subtle border-3">
                     <LessonCard 
                         title="T-SQL ve Veri Tabanı Yönetim Sistemleri"
                         href="/egitimler/veritabani"
+                        price="89.90"
                     />
                 </div>
             </div>
