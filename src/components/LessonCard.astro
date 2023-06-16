@@ -1,14 +1,14 @@
 ---
-const { title, href, price } = Astro.props;
+const { title, href, price, btnSelectorName, priceSelectorName, titleSelectorName } = Astro.props;
 ---
 
 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 text-light">{title}</h3>
+    <h3 id={ titleSelectorName } class="pt-5 mt-5 mb-4 display-6 lh-1 text-light">{title}</h3>
     <ul class="d-flex list-unstyled mt-auto">
 
         <li class="me-auto d-flex gap-3">
             <img src="https://avatars.githubusercontent.com/u/80075444?v=4" alt="sonatipek avatar" width="32" height="32" class="rounded-circle border border-white">
-            <p class="text-secondary fs-5">₺{price}</p>
+            <p id={ priceSelectorName } class="text-secondary fs-5">₺{price}</p>
         </li>
 
         <li class="d-flex align-items-center me-3">
@@ -19,7 +19,7 @@ const { title, href, price } = Astro.props;
         </li>
 
         <li class="d-flex align-items-center me-3">
-            <a href="#" class="btn btn-secondary text-white fw-bold">
+            <a id={ btnSelectorName } href="#" class="btn btn-secondary text-white fw-bold">
                 <i class="fa-solid fa-cart-plus"></i>
                 Sepete Ekle
             </a>
@@ -27,3 +27,4 @@ const { title, href, price } = Astro.props;
 
     </ul>
 </div>
+

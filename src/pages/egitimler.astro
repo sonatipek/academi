@@ -15,6 +15,9 @@ import Main from "../components/sections/Main.astro";
                         title="Nesne Tabanlı Programlama - OOP"
                         href="/egitimler/nesnetabanliprogramlama"
                         price="29.90"
+                        btnSelectorName="addToBasket1"
+                        priceSelectorName="price1"
+                        titleSelectorName="title1"
                     />
                 </div>
             </div>
@@ -26,6 +29,9 @@ import Main from "../components/sections/Main.astro";
                         title="Yapay Zeka ve Python"
                         href="/egitimler/yapayzeka"
                         price="450.90"
+                        btnSelectorName="addToBasket2"
+                        priceSelectorName="price2"
+                        titleSelectorName="title2"
                     />
                 </div>
             </div>
@@ -37,6 +43,9 @@ import Main from "../components/sections/Main.astro";
                         title="Modern Web Tasarım Temelleri"
                         href="/egitimler/modernwebtasarim"
                         price="47.99"
+                        btnSelectorName="addToBasket3"
+                        priceSelectorName="price3"
+                        titleSelectorName="title3"
                     />
                 </div>
             </div>
@@ -48,6 +57,9 @@ import Main from "../components/sections/Main.astro";
                         title="T-SQL ve Veri Tabanı Yönetim Sistemleri"
                         href="/egitimler/veritabani"
                         price="89.90"
+                        btnSelectorName="addToBasket4"
+                        priceSelectorName="price4"
+                        titleSelectorName="title4"
                     />
                 </div>
             </div>
@@ -55,3 +67,77 @@ import Main from "../components/sections/Main.astro";
         </div>
     </Main>
 </Layout>
+
+<script>import { isLocalService } from "astro/dist/assets";
+
+    let addToBasketButton1 = document.querySelector('#addToBasket1');
+    let price1 = document.querySelector('#price1').textContent;
+    price1 = price1.replace('₺','');
+    let title1 = document.querySelector('#title1').textContent;
+
+    let addToBasketButton2 = document.querySelector('#addToBasket2');
+    let price2 = document.querySelector('#price2').textContent;
+    let title2 = document.querySelector('#title2').textContent;
+    
+    let addToBasketButton3 = document.querySelector('#addToBasket3');
+    let price3 = document.querySelector('#price3').textContent;
+    let title3 = document.querySelector('#title3').textContent;
+    
+    let addToBasketButton4 = document.querySelector('#addToBasket4');
+    let price4 = document.querySelector('#price4').textContent;
+    let title4 = document.querySelector('#title4').textContent;
+    
+
+    addToBasketButton1.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (localStorage.hasOwnProperty(title1)) {
+            alert("Bu eğitimi zaten sepete eklemişsiniz!")
+        } else {
+            localStorage.setItem(title1, price1)
+            alert("Eklendi")
+
+        }
+    });
+
+
+    addToBasketButton2.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (localStorage.hasOwnProperty(title1)) {
+            alert("Bu eğitimi zaten sepete eklemişsiniz!")
+        } else {
+            localStorage.setItem(title2, price2)
+            alert("Eklendi")
+
+        }
+        
+
+        
+    });
+
+
+    addToBasketButton3.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (localStorage.hasOwnProperty(title1)) {
+            alert("Bu eğitimi zaten sepete eklemişsiniz!")
+        } else {
+            localStorage.setItem(title3, price3)
+            alert("Eklendi")
+
+        }
+        
+    });
+
+
+    addToBasketButton4.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (localStorage.hasOwnProperty(title1)) {
+            alert("Bu eğitimi zaten sepete eklemişsiniz!")
+        } else {
+            localStorage.setItem(title4, price4)
+            alert("Eklendi")
+
+        }
+        
+    });
+
+</script>
