@@ -1,0 +1,231 @@
+---
+import Main from "../components/sections/Main.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="İstekler" >
+    <Main>
+        <div class="card row">
+            <div class="card-header">İstek Listesi</div>
+            <div class="card-body" id="add-body">
+                    <form id = "wish-form" name="form">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="wish" id = "wish" placeholder="İsteğinizi giriniz">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3" id="add-button">İsteği Ekle</button>
+                    </form>
+                    <hr>
+                    
+                
+             </div>
+         
+             <div class="card-body" id="see-body">
+                    <hr>
+                    <h5 class="card-title" id = "wish-title">İstekler</h5>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="filter" id = "filter" placeholder="İstek Ara">
+                            </div>
+                    </div>
+    
+                    <hr>
+                    <ul class="list-group" id="list-group">
+                        
+    
+                        
+                    </ul>
+                    <hr>  
+                    <a id = "clear-wishes" class="btn btn-outline-danger" href="#">Tüm İstekleri Temizle</a>               
+                </div>
+        </div>
+        
+    </div>
+
+    </Main>
+
+</Layout>
+
+<script>
+    // *Choosing Elements
+// Form
+const wishForm = document.querySelector('#wish-form');
+
+// İnputs
+const wishInput = document.querySelector('#wish');
+const searchInput = document.querySelector('#filter');
+
+// Buttons
+const addWishButton = document.querySelector('#add-button');
+const clearWishesButton  = document.querySelector('#clear-wishes');
+
+// Others
+const wishList = document.querySelector('#list-group');
+const addBody = document.querySelector('#add-body');
+const seeBody = document.querySelector('#see-body');
+
+
+// *Events
+// Add ToDo Event
+wishForm.addEventListener('submit', addWish);
+
+// Load all wishes to uı from local storage
+document.addEventListener("DOMContentLoaded", loadAllWishesToUI);
+
+// Delete Todos
+seeBody.addEventListener("click", deleteWishesItem);
+
+// Filter Todos
+searchInput.addEventListener("keyup", searchWishes);
+
+// Clear Todos
+clearWishesButton.addEventListener('click', clearWishes);
+
+// *Functions
+// Add Todo Function
+function addWish(e){
+    e.preventDefault();
+    const newWish = wishInput.value.trim();
+    
+    if(newWish === ""){
+        showAlert("danger", "İstek Listesi Boş Olamaz!");
+    }else{
+        showAlert("success", "İstek Başarıyla Eklendi");
+        addWishesToUI(newWish);
+        addWishesToStorage(newWish);
+    }
+}
+
+// Add Todo to UI Function
+function addWishesToUI(newWish){
+    // Create List Item and make adjustments
+    const listItem = document.createElement("li");
+    listItem.classList = "list-group-item d-flex justify-content-between";
+
+    // Create Link in List İtem and make adjustments
+    const linkInListItem = document.createElement('a');
+    linkInListItem.href = "#";
+    linkInListItem.classList = "delete-item";
+    linkInListItem.innerHTML = "<i class = 'fa fa-remove'></i>"
+
+    // Add text node in list item
+    listItem.appendChild(document.createTextNode(newWish));
+    listItem.appendChild(linkInListItem);
+
+    // Append the wish list group and clear input
+    wishList.appendChild(listItem);
+    wishInput.value = "";
+}
+
+// Show Alert Function
+function showAlert(alertType, alertMessage){
+    // Create Alert Div
+    const alertDiv = document.createElement("div");
+    alertDiv.classList = `alert alert-${alertType}`;
+
+    // Add text node in div
+    alertDiv.textContent = alertMessage;
+
+    // Add alert div to UI
+    addBody.appendChild(alertDiv);
+
+    // Set Timeout
+    setTimeout(() => {
+        alertDiv.remove();
+    }, 1500);
+}
+
+// Get Todos From Storage
+function getWishesFromStorage(){
+    let wishItems;
+
+    if(localStorage.getItem("wishItems_key") === null){
+        wishItems = [];
+    }else{
+        wishItems = JSON.parse(localStorage.getItem("wishItems_key"));
+    }
+
+    return wishItems;
+}
+
+// Add Todo to Local Storage
+function addWishesToStorage(newWish){
+    let wishItems = getWishesFromStorage();
+
+    wishItems.push(newWish);
+
+    localStorage.setItem("wishItems_key", JSON.stringify(wishItems));
+}
+
+// When page loaded add wishes to uı from local storage
+function loadAllWishesToUI(){
+    let wishItems = getWishesFromStorage();
+
+    wishItems.forEach(todoItem => {
+        addWishesToUI(todoItem);
+    });
+}
+
+// Delete wish items 
+function deleteWishesItem(e){
+    if (e.target.className === "fa fa-remove") {
+        const myTarget = e.target.parentElement.parentElement;
+
+        // Delete item to UI
+        myTarget.remove(); //li element remove
+
+        // Delete item to Storage
+        deleteWishesItemFromStorage(myTarget);
+       
+        showAlert("success", "İstek başarıyla eklendi!");
+    }
+}
+
+// Delete wish items from storage
+function deleteWishesItemFromStorage(deleteWishesItem){
+    let wishItems = getWishesFromStorage();
+
+    wishItems.forEach((wish, index) => {
+        if(wish === deleteWishesItem.textContent){
+            wishItems.splice(index, 1);
+        }
+    });
+
+    localStorage.setItem("wishItems_key", JSON.stringify(wishItems));
+}
+
+// Filter Todos
+function searchWishes(e){
+    const searchValue = e.target.value.toLowerCase();
+    const listItems = document.querySelectorAll('.list-group-item');
+
+    listItems.forEach(listItem => {
+        const itemText = listItem.textContent.toLowerCase();
+
+        if(itemText.indexOf(searchValue) === -1){
+            listItem.setAttribute("style", "display: none !important");
+        }else{
+            listItem.setAttribute("style", "display: block");
+        }
+    });
+}
+
+// Clear Todos
+function clearWishes() {
+    
+    if(wishList.firstElementChild != null){
+        // Clear UI
+        while (wishList.firstElementChild != null){
+            wishList.removeChild(wishList.firstElementChild);
+        }
+
+        // Clear Storage
+        localStorage.clear();
+
+        showAlert("info", "Tüm istekler başarıyla silindi!");
+    }else{
+        showAlert("warning", "Silmek için ilk önce istek eklemelisin");
+    }
+}
+</script>
