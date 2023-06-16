@@ -62,10 +62,7 @@
                         :ucret="ucretYear3"
                         :loop="loopYear"
                     ></Pricingoptions>
-
                 </div>
-
-                
             </div>
 
         </div>
