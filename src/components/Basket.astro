@@ -1,0 +1,95 @@
+---
+import BasketItem from "./BasketItem.astro";
+---
+<!-- Alpine Mask Plugin -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+<div class="row g-5 mt-2 mb-5">
+    <!-- Orders -->
+    <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items center mb-3">
+            <span class="text-success-emphasis">Sepetiniz</span>
+            <span class="badge bg-success-subtle border border-success-subtle text-success-emphasis rounded-pill">3</span>
+        </h4>
+    
+        <ul class="list-group mb-3">
+
+            <BasketItem productTitle="Item -1" desc="Açıklama" price="₺17" />
+            <!-- <BasketItem productTitle="Item -1" desc="Açıklama" price="₺17" /> -->
+        </ul>
+
+        <div class="p-2 border border-success rounded ">
+            <div class="bg-success-subtle d-flex justify-content-between p-2 rounded">
+                <span>Sepet Tutarı (TL)</span>
+                <strong> Tutar </strong>
+            </div>
+
+        </div>
+        
+    </div>
+    <!-- Orders End-->
+
+
+    <div class="col-md-7 col-lg-8">
+        <form class="needs-validation" novalidate="" x-data>
+            <h4 class="display-6 mb-3 text-center">Ödeme Bilgileriniz</h4>
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <label for="cc-name" class="form-label">Kart Üzerindeki İsim</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                    <small class="text-body-secondary">Kart üzerinde bulunan tam isim</small>
+                    <div class="invalid-feedback">Kart üzerinde bulunan tam isim zorunludur</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="cc-number" class="form-label">Kart Numarası</label>
+                    <input class="form-control" id="cc-number" placeholder="" required="" x-mask="9999 9999 9999 9999">
+                    <div class="invalid-feedback">
+                    Kredi kartı numarası zorunludur
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="cc-expiration" class="form-label">Son Kullanım Tarihi</label>
+                    <input x-mask="99/99" class="form-control" id="cc-expiration" placeholder="" required="">
+                    <div class="invalid-feedback">
+                    Son kullanım tarihi zorunludur
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="cc-cvv" class="form-label">CVV</label>
+                    <input x-mask="999" class="form-control" id="cc-cvv" placeholder="" required="">
+                    <div class="invalid-feedback">
+                    CVV kodu zorunludur
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success border border-success rounded p-2 mt-3" type="submit">Satın Alımı Onayla</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+    })
+    })()
+</script>

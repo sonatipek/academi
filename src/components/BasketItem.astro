@@ -1,0 +1,11 @@
+---
+const { productTitle, desc, price } = Astro.props;
+---
+
+<li class="list-group-item d-flex justify-content-between lh-sm">
+    <div>
+      <h6 class="my-0">{ productTitle }</h6>
+      <small class="text-body-secondary">{ desc }</small>
+    </div>
+    <span class="text-body-secondary">{ price }</span>
+</li>
