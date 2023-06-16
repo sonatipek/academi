@@ -5,43 +5,48 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="İstekler" >
     <Main>
-        <div class="card row">
-            <div class="card-header">İstek Listesi</div>
-            <div class="card-body" id="add-body">
-                    <form id = "wish-form" name="form">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input class="form-control" type="text" name="wish" id = "wish" placeholder="İsteğinizi giriniz">
+        <div class="row my-5">
+            <div class="card col">
+                <div class="card-header p-2 px-5">İstek Listesi</div>
+                <div class="card-body" id="add-body">
+                        <form id = "wish-form" name="form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input class="form-control" type="text" name="wish" id = "wish" placeholder="İsteğinizi giriniz">
+                                </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mt-3" id="add-button">İsteği Ekle</button>
-                    </form>
-                    <hr>
-                    
-                
-             </div>
-         
-             <div class="card-body" id="see-body">
-                    <hr>
-                    <h5 class="card-title" id = "wish-title">İstekler</h5>
-                    <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input class="form-control" type="text" name="filter" id = "filter" placeholder="İstek Ara">
-                            </div>
-                    </div>
-    
-                    <hr>
-                    <ul class="list-group" id="list-group">
-                        
-    
-                        
-                    </ul>
-                    <hr>  
-                    <a id = "clear-wishes" class="btn btn-outline-danger" href="#">Tüm İstekleri Temizle</a>               
+                            <button type="submit" class="btn btn-success mt-3" id="add-button">İsteği Ekle</button>
+                        </form>
+                        <hr>
                 </div>
+             
+                <div class="card-body" id="see-body">
+                        <hr>
+                        <h5 class="card-title" id = "wish-title">İstekler</h5>
+                        <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input class="form-control" type="text" name="filter" id = "filter" placeholder="İstek Ara">
+                                </div>
+                        </div>
+        
+                        <hr>
+                        <ul class="list-group" id="list-group">
+                            
+        
+                            
+                        </ul>
+                        <hr>  
+                        <a id = "clear-wishes" class="btn btn-outline-danger" href="#">Tüm İstekleri Temizle</a>               
+                </div>
+    
+            </div>
+            
+            <div class="col-4">
+                <img src="/illustrations/wishlist.svg" alt="wishlist" width="500" height="500">
+            </div>
         </div>
         
-    </div>
+  
 
     </Main>
 
